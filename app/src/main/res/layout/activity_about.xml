@@ -91,6 +91,14 @@
                 style="@style/AboutText.Content"
                 android:text="@string/about_instruction_autoSave_intro" />
 
+            <TextView
+                style="@style/AboutText.Title"
+                android:text="@string/about_instruction_no" />
+
+            <TextView
+                style="@style/AboutText.Content"
+                android:text="@string/about_instruction_no_intro" />
+
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>

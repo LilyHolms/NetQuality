@@ -14,6 +14,7 @@ public class ActivityMain extends ActivityToolbar implements View.OnClickListene
     private ArrayList<DatumInfo> netStates = new ArrayList<>();
     private String stamp;
     private FragmentInfo speedFragment;
+    private MyFun myFun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class ActivityMain extends ActivityToolbar implements View.OnClickListene
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(this);
         speedFragment = (FragmentInfo) getFragmentManager().findFragmentById(R.id.fragment_speed);
+        myFun = new MyFun(this);
     }
 
     @Override
@@ -77,6 +79,8 @@ public class ActivityMain extends ActivityToolbar implements View.OnClickListene
                     if (SettingSP.getInstance().getTipWhenAutoSave()) {
                         Toast.makeText(this, R.string.auto_save_suc, Toast.LENGTH_SHORT).show();
                     }
+                } else {
+                    Toast.makeText(this, R.string.get_suc, Toast.LENGTH_SHORT).show();
                 }
                 break;
             }
@@ -88,10 +92,34 @@ public class ActivityMain extends ActivityToolbar implements View.OnClickListene
     }
 
     private void getNetState() {
-        // 先采集数据再清空list
         netStates.clear();
-        stamp = String.valueOf(System.currentTimeMillis());
-        netStates.add(new DatumInfo(MyInfoType.date, "123434"));
-        netStates.add(new DatumInfo(MyInfoType.time, "xdsdfdsfs"));
+        stamp = myFun.getStamp();
+//        网络类型
+        addInfo(MyInfoType.netType, myFun.getNetType());
+//        时区，日期，时间
+        String[] timeWithZone = myFun.getTimeWithZone();
+        addInfo(MyInfoType.timeZone, timeWithZone[0]);
+        addInfo(MyInfoType.date, timeWithZone[1]);
+        addInfo(MyInfoType.time, timeWithZone[2]);
+//        IMSI
+        addInfo(MyInfoType.IMSI, myFun.getIMSI());
+//        IMEI
+        addInfo(MyInfoType.IMEI, myFun.getIMEI());
+//        终端名称
+        addInfo(MyInfoType.phoneName, myFun.getPhoneName());
+//        操作系统版本
+        addInfo(MyInfoType.osVersion, myFun.getOsVersion());
+//        运营商名称
+        addInfo(MyInfoType.operator, myFun.getOperator());
+//        经度
+        addInfo(MyInfoType.longitude, myFun.getLongitude());
+//        纬度
+        addInfo(MyInfoType.latitude, myFun.getLatitude());
+//        ip地址
+        addInfo(MyInfoType.ip, myFun.getIp());
+    }
+
+    private void addInfo(MyInfoType myInfoType, String value) {
+        netStates.add(new DatumInfo(myInfoType, value));
     }
 }
