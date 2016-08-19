@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="自动保存">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="auto_save"
+            android:summary="采集完毕时自动保存每次采集到的数据"
+            android:title="数据自动自动保存" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="tip_when_auto_save"
+            android:summary="当数据自动保存后弹出提示"
+            android:title="自动保存时提示" />
+    </PreferenceCategory>
+</PreferenceScreen>
