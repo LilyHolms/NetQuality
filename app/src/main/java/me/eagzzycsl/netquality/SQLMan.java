@@ -73,6 +73,10 @@ public class SQLMan implements AboutDb {
         myDb.insert(TABLE_History.TABLE_NAME, null, cv);
     }
 
+    public void delete(String stamp){
+        myDb.delete(TABLE_History.TABLE_NAME, MyInfoType.stamp.getKey() + "=?", new String[]{stamp});
+    }
+
     public void deleteAll() {
         myDb.delete(TABLE_History.TABLE_NAME, null, null);
     }

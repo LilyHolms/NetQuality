@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">NetQuality</string>
     <!--菜单action-->
+    <string name="action_test">测试</string>
     <string name="action_settings">设置</string>
     <string name="action_save">保存</string>
     <string name="action_history">历史</string>
@@ -19,7 +20,7 @@
     <string name="about_name">网络质量数据采集终端</string>
     <string name="about_name_intro">在智能手机端采集用户智能手机基本信息与运营商网络质量</string>
     <string name="about_dev">开发者</string>
-    <string name="about_dev_intro">郭笛、黄凌云、李奕鋆、林秋霞、邱媛、孙青煜、王旻昊、赵仲印</string>
+    <string name="about_dev_intro">郭笛、赵仲印、黄凌云、李奕鋆、林秋霞、邱媛、孙青煜、王旻昊</string>
     <string name="about_instruction_collect">采集功能</string>
     <string name="about_instruction_collect_intro">在主界面点击右下角的按钮即可完成数据采集</string>
     <string name="about_instruction_showHis">历史记录</string>

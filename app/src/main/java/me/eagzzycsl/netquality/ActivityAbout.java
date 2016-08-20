@@ -5,14 +5,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 public class ActivityAbout extends ActivityToolbar implements View.OnClickListener {
-    private FloatingActionButton fab;
+    private ImageView fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (ImageView) findViewById(R.id.fab);
         fab.setOnClickListener(this);
     }
 
